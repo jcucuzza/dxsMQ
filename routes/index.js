@@ -3,11 +3,15 @@ var router = express.Router();
 var broker = require('../src/broker');
 var dxsmq = broker.create({ username: 'test', password: '123456' }, 0);
 
+var pull = '';
+
 /* GET home page. */
 router.get('/', function (req, res, next) {
   dxsmq.setPort(req.headers.host.split(':')[1]);
   res.render('index', {
-    queues: dxsmq.getAllQueues()
+    queues: dxsmq.getAllQueues(),
+    port: dxsmq.port(),
+    pull: pull
   });
 });
 
@@ -23,9 +27,10 @@ router.post('/add-to-queue', function (req, res, next) {
   res.redirect('/');
 });
 
-router.get('/pull-from-queue', function (req, res, next) {
-  dxsmq.pullFromQueue();
-});
+router.post('/pull-from-queue', function (req, res, next) {
+  pull = dxsmq.pullFromQueue(req.body.qname2);
+  res.redirect('/');
+})
 
 
 module.exports = router;

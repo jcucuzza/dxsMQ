@@ -59,6 +59,7 @@ class Broker {
         this.queues.forEach(queue => {
             if (queue.name() == name) {
                 msg = queue.pull();
+                console.log(queue.bucket());
             }
         });
         return msg;

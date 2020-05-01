@@ -24,8 +24,7 @@ class Queue {
     }
 
     pull() {
-        let msg = this.qbucket[0];
-        this.qbucket.unshift();
+        let msg = this.qbucket.shift();;
         this.qdepth--;
         return msg;
     }
@@ -39,4 +38,5 @@ function getFormattedDate() {
 
     return d;
 }
+
 module.exports = Queue;
