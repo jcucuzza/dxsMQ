@@ -7,7 +7,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
   </head>
   <body>
-    <div> PORT#: <%= port %></div>
+
+    <p align="right">
+      <a href="" ><input type="button" class="btn btn-primary mb-2" value="refresh"></input></a>
+    </p>
+    <div align="left"> PORT#: <%= port %></div>
     <!--<form class="form-inline" action="/create-queue" method="POST" >
       <div class="form-group mx-sm-3 mb-2">
         <input type="text" class="form-control" id="qname" name="qname" placeholder="Queue name" autocomplete="off">
@@ -29,6 +33,7 @@
       <button type="submit" class="btn btn-primary mb-2">pull from queue</button>
     </form>
 
+
     <div id="div_table">
     <table class="table table-striped table-bordered table-dark table-hover">
       <thead class="thead-dark">
@@ -48,7 +53,7 @@
             <td><a href="" onclick="javascript:modalPopUp(<%= cnt %>);return false;"><%= queue.depth() %></a>
                 <div id="<%= cnt %>" class="modal">
                   <div class="modal-content">
-                    <span class="close">&times;</span>
+                    <span class="close"><a href="" onclick="">&times;</a></span>
                     <div class="table-wrapper-scroll-y my-custom-scrollbar">
                       <table class="table table-striped table-bordered table-dark table-hover table-responsive" height="50px">
                           <thead>
@@ -79,16 +84,13 @@
     </div>
     <%= JSON.stringify(pull) %>
     <script>
-      var modal = null;
-      var span = document.getElementsByClassName("close")[0];
       
+      var modal = null;
+
       function modalPopUp(id) {
+        this.id = id;
         this.modal = document.getElementById(id);
         modal.style.display = "block";
-      }
-
-      span.onclick = function() {
-        modal.style.display = "none";
       }
 
       window.onclick = function(event) {
