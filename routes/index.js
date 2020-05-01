@@ -3,7 +3,11 @@ var router = express.Router();
 var broker = require('../src/broker');
 var dxsmq = broker.create({ username: 'test', password: '123456' }, 0);
 
-var pull = '';
+dxsmq.createQueue('lithium');
+dxsmq.createQueue('helium');
+dxsmq.createQueue('vanadium');
+
+var pull;
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -31,6 +35,7 @@ router.post('/pull-from-queue', function (req, res, next) {
   pull = dxsmq.pullFromQueue(req.body.qname2);
   res.redirect('/');
 })
+
 
 
 module.exports = router;

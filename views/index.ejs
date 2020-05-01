@@ -7,13 +7,14 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
   </head>
   <body>
-    <div><%= port %></div>
-    <form class="form-inline" action="/create-queue" method="POST" >
+    <div> PORT#: <%= port %></div>
+    <!--<form class="form-inline" action="/create-queue" method="POST" >
       <div class="form-group mx-sm-3 mb-2">
         <input type="text" class="form-control" id="qname" name="qname" placeholder="Queue name" autocomplete="off">
       </div>
       <button type="submit" class="btn btn-primary mb-2">Create a new Queue</button>
     </form>
+    -->
     <form class="form-inline" action="/add-to-queue" method="POST" >
       <div class="form-group mx-sm-3 mb-2">
         <input type="text" class="form-control" id="qname" name="qname" placeholder="Queue name" autocomplete="off">
