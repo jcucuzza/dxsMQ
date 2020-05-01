@@ -8,9 +8,9 @@ class Broker {
                 username: credentials['username'],
                 password: credentials['password']
             },
-            port: port,
             qcount: 0
         };
+        this.portnumber = port;
         this.queues = [];
     }
 
@@ -22,8 +22,11 @@ class Broker {
     }
 
     port() {
-        console.log(this.broker['port']);
-        return this.broker['port'];
+        return this.portnumber;
+    }
+
+    setPort(port) {
+        this.portnumber = port;
     }
 
     getQueueCount() {
