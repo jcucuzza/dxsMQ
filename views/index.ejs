@@ -12,21 +12,21 @@
       <a href="" ><input type="button" class="btn btn-primary mb-2" value="refresh"></input></a>
     </p>
     <div align="left"> PORT#: <%= port %></div>
-    <!--<form class="form-inline" action="/create-queue" method="POST" >
+    <!--<form class="form-inline" action="/create-queue-index" method="POST" >
       <div class="form-group mx-sm-3 mb-2">
         <input type="text" class="form-control" id="qname" name="qname" placeholder="Queue name" autocomplete="off">
       </div>
       <button type="submit" class="btn btn-primary mb-2">Create a new Queue</button>
     </form>
     -->
-    <form class="form-inline" action="/add-to-queue" method="POST" >
+    <form class="form-inline" action="/add-to-queue-index" method="POST" >
       <div class="form-group mx-sm-3 mb-2">
         <input type="text" class="form-control" id="qname" name="qname" placeholder="Queue name" autocomplete="off">
         <input type="text" class="form-control" id="qmessage" name="qmessage" placeholder="Queue message" autocomplete="off">
       </div>
       <button type="submit" class="btn btn-primary mb-2">Add a message to the queue</button>
     </form>
-    <form class="form-inline" action="/pull-from-queue" method="POST">
+    <form class="form-inline" action="/pull-from-queue-index" method="POST">
       <div class="form-group mx-sm-3 mb-2">
         <input type="text" class="form-control" id="qname2" name="qname2" placeholder="Queue name" autocomplete="off">
       </div>

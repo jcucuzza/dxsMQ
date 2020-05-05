@@ -75,13 +75,13 @@ class Broker {
         return depth;
     }
 
-    getAllMessagesFromQueue(name) {
-        return this.broker['queues'][name].all();
-    }
+    // getAllMessagesFromQueue(name) {
+    //     return this.broker['queues'][name].all();
+    // }
 
-    getNamesOfAllQueues() {
-        return Object.keys(this.broker['queues']);
-    }
+    // getNamesOfAllQueues() {
+    //     return Object.keys(this.broker['queues']);
+    // }
 
     getAllQueues() {
         return this.queues;
