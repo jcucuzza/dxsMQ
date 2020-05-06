@@ -59,7 +59,6 @@ class Broker {
         this.queues.forEach(queue => {
             if (queue.name() == name) {
                 msg = queue.pull();
-                console.log(queue.bucket());
             }
         });
         return msg;
@@ -74,14 +73,6 @@ class Broker {
         });
         return depth;
     }
-
-    // getAllMessagesFromQueue(name) {
-    //     return this.broker['queues'][name].all();
-    // }
-
-    // getNamesOfAllQueues() {
-    //     return Object.keys(this.broker['queues']);
-    // }
 
     getAllQueues() {
         return this.queues;
