@@ -36,9 +36,14 @@ router.post('/pull-from-queue-index', function (req, res, next) {
   res.redirect('/');
 });
 
+//TODO: will have to create a list to store ip address that are pulled from draxusio server for security purposes and use those ip addresses in origin.
 router.post('/add-to-queue', function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
+  res.setHeader('Access-Control-Allow-Credentials', true); // If needed
   dxsmq.addToQueue(req.body.qname, req.body.qmessage);
-  res.send(200);
+  res.sendStatus(200);
 });
 
 router.post('/pull-from-queue', function (req, res, next) {
